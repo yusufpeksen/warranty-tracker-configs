@@ -10,11 +10,12 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/api/auth/**
-        - id: user-service
-          uri: lb://user-service
+        - id: product-service
+          uri: lb://product-service
           predicates:
-            - Path=/api/user/**
-           
+            - Path=/api/product/**
+          filters:
+            - name: JwtAuthFilter
 eureka:
   client:
     serviceUrl:
