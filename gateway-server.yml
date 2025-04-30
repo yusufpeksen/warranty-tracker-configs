@@ -21,14 +21,14 @@ spring:
           predicates:
             - Path=/swagger-auth/**
           filters:
-            - RewritePath=/swagger-auth/(?<path>.*), /$\{path}
+            - RewritePath=/swagger-auth/(?<path>.*), /${path}
 
         - id: product-swagger
           uri: lb://product-service
           predicates:
             - Path=/swagger-product/**
           filters:
-            - RewritePath=/swagger-product/(?<path>.*), /$\{path}
+            - RewritePath=/swagger-product/(?<path>.*), /${path}
 
 eureka:
   client:
