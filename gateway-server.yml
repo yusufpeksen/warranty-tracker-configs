@@ -15,21 +15,6 @@ spring:
           predicates:
             - Path=/api/product/**
 
-        # Swagger UI Routes
-        - id: auth-swagger
-          uri: lb://auth-service
-          predicates:
-            - Path=/swagger-auth/**, /webjars/**, /v3/api-docs/**
-          filters:
-            - RewritePath=/swagger-auth/(?<path>.*), /${path}
-
-      - id: product-swagger
-        uri: lb://product-service
-        predicates:
-          - Path=/swagger-product/**, /webjars/**, /v3/api-docs/**
-        filters:
-          - RewritePath=/swagger-product/(?<path>.*), /${path}
-
 eureka:
   client:
     serviceUrl:
