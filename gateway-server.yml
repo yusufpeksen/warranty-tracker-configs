@@ -14,6 +14,12 @@ spring:
           uri: lb://product-service
           predicates:
             - Path=/api/product/**
+        - id: auth-swagger
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth-service/swagger-ui/**, /auth-service/v3/api-docs/**
+          filters:
+            - StripPrefix=1            
 
 eureka:
   client:
