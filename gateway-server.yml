@@ -14,12 +14,12 @@ spring:
           uri: lb://product-service
           predicates:
             - Path=/api/product/**
-        - id: auth-swagger
+        - id: auth-swagger-config-redirect
           uri: lb://auth-service
           predicates:
-            - Path=/auth-service/swagger-ui/**, /auth-service/v3/api-docs/**
+            - Path=/v3/api-docs/swagger-config
           filters:
-            - StripPrefix=1            
+            - RewritePath=/v3/api-docs/swagger-config, /auth-service/v3/api-docs         
 
 eureka:
   client:
