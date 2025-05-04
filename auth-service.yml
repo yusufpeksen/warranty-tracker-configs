@@ -25,10 +25,3 @@ management:
     web:
       exposure:
         include: "*"
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
-    url: /auth-service/v3/api-docs
-  api-docs:
-    path: /v3/api-docs
